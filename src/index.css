@@ -1,0 +1,67 @@
+body{
+    overflow: hidden;
+}
+
+.field{
+    height: 350px;
+    width: 320px;
+    background-color: wheat;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    margin: auto;
+    border: 2px dashed gray;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%) ;
+    -webkit-transform:translate(-50%, -50%) ;
+    -moz-transform:translate(-50%, -50%) ;
+    -ms-transform:translate(-50%, -50%) ;
+    -o-transform:translate(-50%, -50%) ;
+    /* background-image:url('https://t3.ftcdn.net/jpg/05/07/08/76/360_F_507087635_fqZsQmZhb3ng6s935jcOYY2bwuR76iRc.jpg') ; */
+    
+}
+.pitch{
+    height: 22%;
+    width:15px;
+    background-color:  #E2D1A7;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%) ;
+    -webkit-transform:translate(-50%, -50%) ;
+    -moz-transform:translate(-50%, -50%) ;
+    -ms-transform:translate(-50%, -50%) ;
+    -o-transform:translate(-50%, -50%) ;
+    box-shadow: 1px 1px 20px 0px  #E2B07E;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+.bowler{
+    /* height:8px;
+    width:8px;
+    background:black;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, 900%) ;
+    -webkit-transform:translate(-50%, 900%) ;
+    -moz-transform:translate(-50%, 900%) ;
+    -ms-transform:translate(-50%, 900%) ;
+    -o-transform:translate(-50%, 900%) ;
+    box-shadow: 1px 1px 20px 0px  #E2B07E;
+    border-radius: 4px;
+    z-index: 9;
+    transition: 1s;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s; */
+}
+/* {,, ,position:'fixed',left:'10%', bottom:'25%',transition:'1s'} */
