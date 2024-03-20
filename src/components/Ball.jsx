@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const Ball = ({isBowlerInMark,nextBall,setNextBall}) => {
+
+
+
+const Ball = ({isBowlerInMark,nextBall,setNextBall,shortInfo}) => {
+    
+
     let ball = useRef('');
-
-
     useEffect(() =>{
         if(nextBall){
             ball.current.style.transition = '0s';
@@ -21,7 +24,15 @@ const Ball = ({isBowlerInMark,nextBall,setNextBall}) => {
                 return await new Promise((resolve, reject)=>{
                     let hit = setTimeout(() => {
                         //Ball destination after batsman shot !
-                        ball.current.style.transform = `translate(${Math.ceil(Math.random()*50)}px, ${Math.ceil(Math.random()*50)}px)`;
+                        ball.current.style.transform = `translate(${shortInfo.x}px, ${shortInfo.y}px)`;
+                        ball.current.style.transition = '6s';
+                        if(shortInfo.score ===6){
+                            ball.current.classList.add('six');
+                        }else{
+                            ball.current.classList.remove('six');
+                        }
+                        
+
                         clearTimeout(hit);  
                     }, 800);
                     resolve();
@@ -29,14 +40,15 @@ const Ball = ({isBowlerInMark,nextBall,setNextBall}) => {
             }
             finalBallDestination().then(res => {setNextBall(false)}).catch(e => {console.log("Error while batter hitting !")})
         }
-        
+        console.log(shortInfo.score + " Active ")
+
     },[isBowlerInMark]);
 
  
     return (
-        <div ref={ball} style={{borderRadius:'50%', height:'5px',width:'5px', position:'fixed',left:'50%', bottom:'50%', backgroundColor:'red',transition:'1s', zIndex:'5'}}>
-            
-        </div>
+            <div className='ball'  ref={ball} style={{borderRadius:'50%', position:'fixed',left:'50%', bottom:'50%', backgroundColor:'red',transition:'1s', zIndex:'5'}}>
+                
+            </div>
     );
 };
 
