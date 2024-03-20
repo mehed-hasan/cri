@@ -10,7 +10,7 @@ const Ball = ({isBowlerInMark,nextBall,setNextBall,shortInfo}) => {
     useEffect(() =>{
         if(nextBall){
             ball.current.style.transition = '0s';
-            ball.current.style.transform = "translate(-50%, 1200%)";
+            ball.current.style.transform = "translate(-50%, 2300%)";
     
         }
 
@@ -48,7 +48,7 @@ const Ball = ({isBowlerInMark,nextBall,setNextBall,shortInfo}) => {
 
  
     return (
-            <div className='ball'  ref={ball} style={{borderRadius:'50%', position:'fixed',left:'50%', bottom:'50%', backgroundColor:'red',transition:'1s', zIndex:'5'}}>
+            <div className='ball'  ref={ball} style={{borderRadius:'50%', position:'fixed',left:'50%', bottom:'50%', backgroundColor:'red',transition:'1s', zIndex:'5' }}>
                 
             </div>
     );

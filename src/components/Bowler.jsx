@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Ball from './Ball';
 
 const Bowler = () => {
+    let ballWrapper = useRef('');
 
     let shorts = [
         {
@@ -47,16 +48,22 @@ const Bowler = () => {
         },
         {
             x:250,
+            y:-250,
+            score:6
+        },
+        {
+            x:-250,
             y:250,
             score:6
         },
         {
-            x:250,
-            y:250,
+            x:-250,
+            y:-250,
             score:6
         },
     ]
     let shortInfo = shorts[Math.round(Math.random()*(shorts.length-1))] ;
+
 
     let bowler = useRef('');
     let [isBowlerInMark, setBowlerInMark] = useState(false); 
@@ -66,8 +73,8 @@ const Bowler = () => {
 
     useEffect(() => {
 
+        ballWrapper.current.style.opacity = 0;
 
-      
         const runUp = () => {
             return new Promise((resolve, reject) => {
                 let run = setTimeout(() => {
@@ -78,11 +85,13 @@ const Bowler = () => {
                 let isBowlerArrivedInMark = setTimeout(() => {
                     clearTimeout(isBowlerArrivedInMark);
                     resolve();
-                }, 500);
+                }, 250);
             });
         };
 
-        runUp().then(res => {setBowlerInMark(true);}).catch(e => {"Error while run up"}) //
+        runUp().then(res => {setBowlerInMark(true);        ballWrapper.current.style.opacity = 1;
+
+    }).catch(e => {"Error while run up"}) //
 
 
     }, [nextBall]);
@@ -111,7 +120,9 @@ const Bowler = () => {
         {/* <button ref={btn} onClick={()=>handleReset()}> Run ball</button> */}
          <div  ref={bowler} style={{height:'8px',width:'8px', backgroundColor:'black',position:'fixed',left:'50%', bottom:'50%',transition:'1s', zIndex:9}}>
         </div>
-        <Ball shortInfo={shortInfo}   setNextBall={setNextBall} nextBall={nextBall}  isBowlerInMark={isBowlerInMark}/>
+        <div ref={ballWrapper}>
+            <Ball shortInfo={shortInfo}   setNextBall={setNextBall} nextBall={nextBall}  isBowlerInMark={isBowlerInMark}/>
+        </div>
        </div>
 
     );
