@@ -22,8 +22,13 @@ body{
     -ms-transform:translate(-50%, -50%) ;
     -o-transform:translate(-50%, -50%) ;
     /* background-image:url('https://t3.ftcdn.net/jpg/05/07/08/76/360_F_507087635_fqZsQmZhb3ng6s935jcOYY2bwuR76iRc.jpg') ; */
+    background-image:url('https://media.istockphoto.com/id/1290874200/photo/green-grass-texture-top-view-sport-background-soccer-football-rugby-golf-baseball.jpg?s=612x612&w=0&k=20&c=Ji7WWTGoAh7abksPlKcdC5_hNJglAxIRuX8TOjx5hVM=') ;
     
 }
+
+
+
+
 .pitch{
     height: 22%;
     width:15px;
@@ -62,6 +67,7 @@ body{
     -webkit-transition: 1s;
     -moz-transition: 1s;
     -ms-transition: 1s;
+    
     -o-transition: 1s; */
 }
 /* {,, ,position:'fixed',left:'10%', bottom:'25%',transition:'1s'} */
