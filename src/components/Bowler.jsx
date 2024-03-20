@@ -7,18 +7,53 @@ const Bowler = () => {
         {
             x:40,
             y:150,
-            score:4
+            score:6
     
         },
         {
-            x:-240,
+            x:-30,
             y:-150,
             score:6
         },
         {
-            x:350,
+            x:50,
             y:-150,
+            score:6
+        },
+        {
+            x:10,
+            y:100,
             score:4
+        },
+        {
+            x:100,
+            y:10,
+            score:4
+        },
+        {
+            x:50,
+            y:50,
+            score:6
+        },
+        {
+            x:250,
+            y:250,
+            score:6
+        },
+        {
+            x:250,
+            y:250,
+            score:6
+        },
+        {
+            x:250,
+            y:250,
+            score:6
+        },
+        {
+            x:250,
+            y:250,
+            score:6
         },
     ]
     let shortInfo = shorts[Math.round(Math.random()*(shorts.length-1))] ;

@@ -26,6 +26,7 @@ const Ball = ({isBowlerInMark,nextBall,setNextBall,shortInfo}) => {
                         //Ball destination after batsman shot !
                         ball.current.style.transform = `translate(${shortInfo.x}px, ${shortInfo.y}px)`;
                         ball.current.style.transition = '6s';
+
                         if(shortInfo.score ===6){
                             ball.current.classList.add('six');
                         }else{
@@ -38,7 +39,8 @@ const Ball = ({isBowlerInMark,nextBall,setNextBall,shortInfo}) => {
                     resolve();
                 })
             }
-            finalBallDestination().then(res => {setNextBall(false)}).catch(e => {console.log("Error while batter hitting !")})
+            finalBallDestination().then(res => {setNextBall(false);ball.current.classList.remove('six');
+        }).catch(e => {console.log("Error while batter hitting !")})
         }
         console.log(shortInfo.score + " Active ")
 
