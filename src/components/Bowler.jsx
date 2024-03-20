@@ -1,8 +1,10 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Ball from './Ball';
-
+import hittingSound from '../assets/sounds/hit.mp3';
 const Bowler = () => {
     let ballWrapper = useRef('');
+    let [isBatsManHitted, setIsBatsmanHitted] = useState(false);
+    let hitSound = new Audio(hittingSound);
 
     let shorts = [
         {
@@ -74,6 +76,8 @@ const Bowler = () => {
     useEffect(() => {
 
         ballWrapper.current.style.opacity = 0;
+        setIsBatsmanHitted(false);
+
 
         const runUp = () => {
             return new Promise((resolve, reject) => {
@@ -89,11 +93,20 @@ const Bowler = () => {
             });
         };
 
-        runUp().then(res => {setBowlerInMark(true);        ballWrapper.current.style.opacity = 1;
+        runUp().then(res => {setBowlerInMark(true);
+            ballWrapper.current.style.opacity = 1;
+            // setIsBatsmanHitted(true);
+            hitSound.play();
+
 
     }).catch(e => {"Error while run up"}) //
 
+    const interval = setInterval(() => {
+        handleReset();
+    }, 6500);
 
+    // Clean up the interval when the component unmounts or nextBall changes
+    return () => clearInterval(interval);
     }, [nextBall]);
 
     let handleReset =  () =>{
@@ -105,23 +118,20 @@ const Bowler = () => {
         // console.log(nextBall);
     }
 
-        // Set up interval to call handleReset every 3 seconds
-        useEffect(() => {
-            const interval = setInterval(() => {
-                handleReset();
-            }, 6500);
-    
-            // Clean up the interval when the component unmounts or nextBall changes
-            return () => clearInterval(interval);
-        }, [nextBall]);
+
     
     return (
        <div className='bowler'>
         {/* <button ref={btn} onClick={()=>handleReset()}> Run ball</button> */}
-         <div  ref={bowler} style={{height:'8px',width:'8px', backgroundColor:'black',position:'fixed',left:'50%', bottom:'50%',transition:'1s', zIndex:9}}>
+         <div  ref={bowler} style={{height:'7px',width:'7px', backgroundColor:'black',position:'fixed',left:'50%', bottom:'50%',transition:'1s', zIndex:9}}>
         </div>
         <div ref={ballWrapper}>
             <Ball shortInfo={shortInfo}   setNextBall={setNextBall} nextBall={nextBall}  isBowlerInMark={isBowlerInMark}/>
+        </div>
+        <div className={`batsman wave`}   style={{height:'7px',width:'7px', backgroundColor:'blue',position:'fixed',left:'49.5%', bottom:'53%',transition:'1s', zIndex:9}}>
+            {
+                isBatsManHitted && (<div className='dot'></div>)
+            }
         </div>
        </div>
 

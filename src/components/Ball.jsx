@@ -17,7 +17,7 @@ const Ball = ({isBowlerInMark,nextBall,setNextBall,shortInfo}) => {
         if(isBowlerInMark){ //Then throw ball
                 // Move bats man direct based on playbale short 
                 ball.current.style.transition = '1s';
-                ball.current.style.transform = "translate(0px, -40px)"; //Throwing... point !
+                ball.current.style.transform = "translate(0px, -30px)"; //Throwing... point !
                 // clearTimeout(throws);
 
             let finalBallDestination = async() =>{

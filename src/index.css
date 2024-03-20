@@ -87,3 +87,50 @@ body{
     animation: six 2s linear ;
     -webkit-animation: six 2s linear ;
 }
+
+
+
+.batsman {
+    position:relative;
+  }
+  .dot:before{
+    content:' ';
+    position: absolute;
+    z-index:2;
+    left:0;
+    top:0;
+    width:10px;
+    height:10px; 
+    background-color: transparent;
+    border-radius: 50%;
+  }
+  
+  .dot:after {
+    content:' ';
+    position: absolute;
+    z-index:1;
+    width:10px;
+    height:10px;
+    background-color: rgba(0,0,0,.3);
+    border-radius: 50%;
+    animation:ripple .5s linear;
+    /* animation-delay: 4s; */
+    -webkit-animation:ripple .5s linear;
+}
+  
+  @keyframes ripple {
+     0% {
+      left:5px;
+      top:5px;
+      opcity:75;
+      width:0;
+      height:0;
+    }
+    100% {
+      left:-20px;
+      top:-20px;
+      opacity: 0;
+      width:50px;
+      height:50px;
+    }
+  }
